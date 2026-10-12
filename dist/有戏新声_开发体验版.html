@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#235247"><title>有戏新声 · 开发体验版</title><style>:root{--paper:#f7f3eb;--ink:#27251f;--muted:#877d6e;--red:#a72d33;--jade:#235247;--gold:#aa8b59;--line:#e4ddd0;--white:#fffdf8}*{box-sizing:border-box}body{margin:0;background:#e9e2d6;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;font-size:14px}button,input,select,textarea{font:inherit}button{cursor:pointer;color:inherit}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #b89563;outline-offset:3px}button:disabled{opacity:.5;cursor:wait}button{border:0;background:none}h1,h2,h3,p{margin:0}h1,h2,h3{font-weight:600}small{font-size:11px}button,input,select,textarea{touch-action:manipulation}.shell{max-width:1220px;margin:0 auto;display:grid;grid-template-columns:1fr 480px;gap:100px;padding:46px 42px 0;align-items:start}.story{position:sticky;top:64px;padding:30px 0;color:#294b41;min-width:0}.story-brand{display:flex;align-items:center;gap:14px;letter-spacing:3px}.story-seal{width:50px;height:54px;border:2px solid var(--red);border-radius:9px;color:var(--red);display:grid;place-items:center;font:32px 'Songti SC',serif}.story .kicker{display:block;color:#a08962;letter-spacing:5px;font-size:11px;margin:72px 0 25px}.story h1{font:500 clamp(34px,4vw,57px)/1.4 'Songti SC','SimSun',serif;letter-spacing:2px}.story p{font-size:15px;color:#7c7d6b;line-height:2;margin-top:28px}.story .line{width:54px;height:2px;background:#a99169;margin:36px 0}.story li{list-style:none;display:flex;gap:18px;padding:16px 0;border-bottom:1px solid #d5d0be;align-items:center;color:#625f51}.story li b{font:italic 22px Georgia,serif;color:#b09a74}.story ul{padding:0;margin:0}.story footer{font-size:11px;line-height:1.9;margin-top:48px;color:#8b8170}.device{width:480px;min-height:950px;background:var(--paper);box-shadow:0 10px 80px #5243311f;border-radius:26px 26px 0 0;position:relative;overflow:clip}.devbar{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#eae0c9;padding:12px 21px;color:#785e38;font-size:10px}.devbar label{display:flex;align-items:center;gap:4px}.devbar select{border:0;background:transparent;color:#785e38;width:151px;font-size:11px;padding:2px}.topnav{position:sticky;top:0;z-index:10;height:58px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;background:#f7f3ebf5;backdrop-filter:blur(12px);border-bottom:1px solid #efe8dc;font-size:12px}.topnav .weixin-capsule{border:1px solid #d8d1c4;border-radius:20px;letter-spacing:3px;padding:6px 12px;font-weight:600}.topnav button{padding:9px 0;min-width:32px;text-align:left}#identity{font-size:11px;color:#91816e}.main{padding:26px 25px 114px;min-height:780px}.brand-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.eyebrow{display:block;color:#a18255;font-size:9px;letter-spacing:2.4px;line-height:1.5;margin-bottom:9px}.brand-row h2{font-family:'Songti SC',serif;font-size:29px;letter-spacing:2px}.brand-dot{color:var(--red);padding-left:8px}.edition{font-size:10px;border-left:1px solid #c9baa4;padding-left:14px;color:#897455}.stage{background:#214f44;border-radius:5px 5px 22px 22px;color:#fff7e8;padding:30px 29px 28px;overflow:hidden;position:relative;isolation:isolate}.stage h1{font:500 39px/1.45 'Songti SC','SimSun',serif;letter-spacing:1px;margin-top:35px;position:relative}.stage-index{font-size:10px;letter-spacing:2px;color:#d3caa9}.seal{position:absolute;right:28px;top:26px;border:1px solid #baa67b;border-radius:4px;font:18px/1.3 'Songti SC',serif;color:#d5c598;padding:6px;z-index:2}.stage p{font-size:12px;line-height:1.95;color:#d4d8c7;position:relative}.gold-rule{width:31px;height:2px;background:#b7a472;margin:19px 0}.stage-button{display:flex;justify-content:space-between;width:100%;padding:15px 19px;border:1px solid #d4c7a7;border-radius:4px;background:#f4efdf;color:#234b40;font-size:13px;margin-top:24px;font-weight:600;position:relative}.stage-circle{position:absolute;width:210px;height:210px;border:1px solid #cdb78438;border-radius:50%;right:-76px;top:148px;z-index:-1;box-shadow:0 0 0 25px #cdb78408,0 0 0 50px #cdb78408}.stage-arch{position:absolute;right:-42px;top:-35px;width:215px;height:410px;border:1px solid #b9a47938;border-radius:160px 160px 0 0;transform:rotate(-18deg);z-index:-1;background:linear-gradient(90deg,transparent,#baa4740b)}.stage-lines{position:absolute;right:0;bottom:0;width:180px;height:230px;background:repeating-linear-gradient(135deg,transparent,transparent 18px,#dbbf8630 19px,transparent 20px);mask-image:linear-gradient(to top,#000,transparent);z-index:-1}.journey{display:flex;justify-content:space-between;align-items:center;padding:26px 0 24px;border-bottom:1px solid var(--line);margin-bottom:21px}.journey div{display:flex;flex-direction:column;gap:7px;text-align:center}.journey i{font:italic 19px Georgia,serif;color:#a68e65}.journey strong{font-size:12px;font-weight:500}.journey small{font-size:9px;color:#998d7a}.journey>span{color:#c1b298}.studio-invite{display:flex;width:100%;align-items:center;gap:14px;text-align:left;border:1px solid #d9d2bd;background:#efece0;padding:18px 16px;border-radius:13px}.studio-symbol{font:32px Georgia,serif;color:#a6895e}.studio-invite strong{font-size:12px}.studio-invite small{display:block;font-size:9px;color:#8c7d61;margin-top:7px}.studio-invite>span:last-child{margin-left:auto;color:#8b754f;font-size:24px}.section-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:31px 0 16px}.section-heading h2{font:600 22px 'Songti SC',serif;letter-spacing:.3px}.section-heading>span{font-size:9px;color:#8e806d}.work-card{display:block;width:100%;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px;text-align:left;margin-bottom:16px;transition:box-shadow .2s,transform .2s}.work-card:hover{box-shadow:0 10px 24px #4236220d;transform:translateY(-1px)}.work-card h3{font:600 25px 'Songti SC',serif;margin:17px 0 14px}.flex{display:flex;gap:14px;align-items:center}.between{justify-content:space-between}.tag{display:inline-block;padding:5px 8px;border-radius:4px;font-size:9px;background:#eee7d8;color:#856e4a;margin:0 5px 4px 0}.tag.green{background:#e6ede3;color:#3b6752}.tag.red{background:#f2dedb;color:#a5353a}.number-score{font:30px Georgia,serif;color:#a03338;white-space:nowrap}.number-score small{font:9px sans-serif;margin-left:4px;color:#a08b79}.excerpt{font:17px/2 'Songti SC','SimSun',serif;color:#655e51}.clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.card-footer{border-top:1px solid #eee7dc;padding-top:15px;margin-top:18px;display:flex;justify-content:space-between;color:#998770;font-size:9px;gap:8px}.card-footer span:last-child{color:#716144;white-space:nowrap}.creator-card{display:flex;width:100%;gap:14px;text-align:left;align-items:center;padding:18px 0;border-top:1px solid #e3dbca}.avatar{width:49px;height:49px;flex-shrink:0;border:1px solid #d6ddc7;background:#e4e8d8;color:#526442;border-radius:50%;display:grid;place-items:center;font:24px 'Songti SC',serif}.creator-card strong{font-size:13px}.creator-card p{font-size:11px;line-height:1.8;color:#988976;margin-top:5px}.creator-card>span:last-child{margin-left:auto;color:#8a775a}.footnote{text-align:center;font-size:9px;line-height:2.3;color:#a59886;margin:36px 0 8px;letter-spacing:1px}.bottom-nav{position:fixed;bottom:0;width:480px;background:#fffdf8f5;border-top:1px solid #e4ddcd;backdrop-filter:blur(10px);z-index:15;display:flex;justify-content:space-around;padding:10px 13px max(12px,env(safe-area-inset-bottom))}.bottom-nav button{padding:6px 22px;color:#9d927f;font-size:10px;display:flex;gap:5px;align-items:center;flex-direction:column}.bottom-nav i{font:21px Georgia,serif;font-style:normal;height:25px}.bottom-nav button.active{color:#a43338}.bottom-nav button.active:after{content:'';width:4px;height:4px;border-radius:50%;background:#a43338;position:absolute;top:5px}.page-heading{margin-bottom:26px}.page-heading h1{font:500 32px/1.45 'Songti SC',serif;letter-spacing:.5px;margin-top:13px}.page-heading p{font-size:12px;line-height:1.9;color:#897a65;margin-top:12px}.field{display:flex;flex-direction:column;gap:11px;margin:0 0 21px}.field>span{font-size:12px;font-weight:600;color:#514b40}.field small,.form-note{font-size:10px;line-height:1.85;color:#96866f}input:not([type=checkbox]),select,textarea{width:100%;border:1px solid #ded5c4;border-radius:9px;padding:13px 14px;background:#fffdf9;color:var(--ink);font-size:13px;min-width:0}input:not([type=checkbox]),select{min-height:46px}textarea{min-height:142px;resize:vertical;line-height:1.9}textarea::placeholder,input::placeholder{color:#b1a18a}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:15px}.primary,.secondary{padding:14px 17px;border-radius:9px;font-size:12px;font-weight:600;display:inline-flex;justify-content:center;gap:10px;align-items:center;min-height:45px}.primary{background:var(--red);color:#fff9f1}.secondary{background:#eee7d9;color:#74603d;border:1px solid #e5dac6}.full{width:100%}.primary.full{justify-content:space-between}.text-button{font-size:11px;color:#a14646;padding:10px 0;min-height:36px;text-align:center}.spaced{margin-top:22px}.upload{border:1px dashed #baa887;border-radius:10px;position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:9px;padding:28px 14px;background:#f1ecdf;overflow:hidden;cursor:pointer}.upload>span{font-size:12px;color:#80633a}.upload input{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer}.file-row{display:flex;align-items:center;gap:12px;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:12px;overflow-wrap:anywhere}.file-row>span{min-width:0;flex:1}.file-row small{color:var(--muted)}.check{display:flex;gap:10px;align-items:flex-start;line-height:1.85;font-size:11px;color:#776b58;margin:18px 0}.check input{accent-color:var(--red);margin:4px 0 0;flex-shrink:0;width:15px;height:15px}.paper{padding:22px;border:1px solid var(--line);border-radius:14px;background:var(--white);margin-bottom:15px;overflow-wrap:anywhere}.paper h3{font-size:16px;margin-bottom:16px}.pre{white-space:pre-wrap;overflow-wrap:anywhere}.divider{border-top:1px solid var(--line);margin:20px 0}.muted{font-size:11px;color:var(--muted);line-height:1.9}.big-score{font:48px Georgia,serif;color:var(--red);white-space:nowrap}.big-score small{font:11px sans-serif;margin-left:4px;color:#a88d78}.dimension{display:flex;gap:12px;align-items:center;margin-top:17px;font-size:10px}.dimension span{width:99px}.dimension>div{flex:1;background:#eee7d9;border-radius:8px;height:5px;overflow:hidden}.dimension i{display:block;height:100%;background:#62806a}.dimension b{font-size:11px;min-width:26px;text-align:right;font-weight:400}.review{border-top:1px solid #e7e0d2;margin-top:22px;padding-top:18px}.review strong{font-size:12px}.review strong span{font-size:11px;color:var(--red);font-weight:400}.review p{font-size:12px;line-height:1.95;color:#817260;margin-top:12px}.notice{padding:16px 18px;border:1px solid #e1d4b7;background:#f0e7d4;color:#806849;font-size:11px;line-height:1.9;border-radius:10px}.benefit{display:flex;gap:14px;align-items:center;padding:20px;border:1px solid var(--line);background:#f9f8ef;border-radius:12px;margin-bottom:12px}.benefit-icon{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#e1e9d8;color:#4c6a43}.benefit strong{font-size:13px}.benefit p{font-size:11px;color:var(--muted);line-height:1.8;margin-top:6px}.score-input{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;gap:12px}.score-input label{font-size:12px}.score-input label small{display:block;margin-top:6px;color:var(--muted)}.score-input input{width:75px}.points-strip{display:flex;align-items:center;justify-content:space-between;background:#e6ebdf;border:1px solid #d6dfca;border-radius:10px;padding:18px;margin-bottom:17px;color:#406443}.points-strip>span{font-size:12px}.points-strip strong{font:30px Georgia,serif}.points-strip small{font:10px sans-serif;margin-left:6px}.notation{margin-top:25px;padding:20px;background:#f4efdf;color:#4a5641;border-radius:9px;font-size:11px}.notation p{font:20px/2.2 Georgia,serif;word-spacing:4px;margin-top:12px}.result h2{font:27px 'Songti SC',serif;margin:18px 0}.result .form-note{margin-top:18px}.actions{display:flex;gap:11px;margin-top:17px;flex-wrap:wrap}.actions>button{flex:1;min-width:110px}.record-row{display:flex;width:100%;align-items:center;justify-content:space-between;gap:12px;text-align:left;padding:18px 0;border-bottom:1px solid var(--line)}.record-row strong{font-size:13px}.record-row small{display:block;color:#a0917e;margin-top:7px}.record-row .tag{white-space:nowrap}.profile-stats{display:flex;gap:12px;margin:26px 0}.profile-stats>div{flex:1;background:#eee7d9;border-radius:13px;text-align:center;padding:18px 5px}.profile-stats strong{font:32px Georgia,serif}.profile-stats small{display:block;margin-top:8px;color:#8d7a5f;font-size:10px}.ledger-row{display:flex;align-items:center;gap:10px;justify-content:space-between;border-bottom:1px solid var(--line);padding:17px 0}.ledger-row:last-child{border:0}.ledger-row strong{font-size:12px;font-weight:500}.ledger-row small{display:block;color:var(--muted);margin-top:8px}.ledger-row b{font:22px Georgia,serif;color:#4e7959}.ledger-row b.negative{color:#a54444}.user-card p{font-size:12px;line-height:1.9;margin-top:14px}.user-card strong{font-size:13px}.creator-hero{background:#235247;border-radius:14px;padding:29px;color:#fff8e8}.creator-hero .eyebrow{color:#c4b582}.avatar.large{width:68px;height:68px;font-size:32px;background:#e7dfc4}.creator-hero h1{font:32px 'Songti SC',serif}.creator-hero .tag{margin-top:20px}.creator-hero p{font-size:13px;line-height:1.9;margin-top:12px;color:#dedac4}.policy{margin-top:26px}.policy h2{font-size:18px;margin-bottom:13px}.policy p{font-size:12px;line-height:2;color:#80705c}.empty{padding:32px 16px;border:1px dashed #d9cdb8;border-radius:12px;color:#9b8669;font-size:12px;line-height:2;text-align:center}.empty.small{padding:20px}.error{padding:17px;background:#f7dfda;border:1px solid #e6b8ae;color:#9b3a35;border-radius:10px;margin-bottom:22px;font-size:12px;line-height:1.8}.toast{position:fixed;left:50%;bottom:98px;transform:translate(-50%,15px);z-index:40;max-width:min(88vw,440px);background:#234b43f5;color:#fff9ee;padding:14px 20px;border-radius:12px;font-size:12px;box-shadow:0 6px 28px #0002;opacity:0;pointer-events:none;transition:.2s;text-align:center}.toast.visible{opacity:1;transform:translate(-50%,0)}.working{position:fixed;right:20px;top:20px;z-index:50;background:#214f44;color:white;font-size:12px;padding:12px 18px;border-radius:20px}.is-busy #main button,.is-busy .bottom-nav button{pointer-events:none;opacity:.6}[hidden]{display:none!important}
+@media(min-width:1100px){.device{margin-bottom:50px;border-radius:26px}.bottom-nav{border-radius:0 0 18px 18px;bottom:20px;box-shadow:0 -6px 25px #6755370a}.device{padding-bottom:5px}}
+@media(max-width:1000px){.shell{max-width:620px;display:block;padding:0}.story{display:none}.device{width:100%;border-radius:0;min-height:100vh}.bottom-nav{width:min(100%,620px);bottom:0}.main{padding-left:30px;padding-right:30px}.stage h1{font-size:42px}.main{min-height:calc(100vh - 95px)}}
+@media(max-width:440px){.main{padding:23px 21px 110px}.stage{padding:25px 23px 24px}.stage h1{font-size:35px}.brand-row h2{font-size:27px}.edition{font-size:9px;padding-left:12px}.section-heading>span{font-size:8px}.section-heading h2{font-size:21px}.page-heading h1{font-size:29px}.devbar{padding:10px 18px}.devbar select{width:138px;font-size:10px}.paper{padding:19px}.work-card{padding:19px}.dimension span{width:91px}.topnav{height:51px}.journey small{font-size:8px}.studio-invite{gap:10px;padding:17px 12px}.studio-invite strong{font-size:11px}.studio-invite small{font-size:9px}.bottom-nav button{padding:6px 19px}.card-footer{font-size:8px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style></head>
+<body><div class="shell"><aside class="story"><div class="story-brand"><span class="story-seal">戏</span><div>有戏新声<br><small>YOUXI XINSHENG</small></div></div><span class="kicker">让热爱，从这里登台</span><h1>一段戏词，<br>一次新声。</h1><p>为戏曲爱好者，留一处创作的地方。<br>从灵感到作品，从专业点评到下一次登台。</p><div class="line"></div><ul><li><b>01</b><span>提交原创 · 让老师听见</span></li><li><b>02</b><span>词谱工坊 · 为灵感起笔</span></li><li><b>03</b><span>个人舞台 · 被看见，被回应</span></li></ul><footer>微信原生开发版配套体验页 · v0.2.0<br>本机保存 / 可切换投稿、专家、运营角色<br>示例人物、积分与培训安排仅供开发验收。</footer></aside><div class="device"><div class="devbar"><span>本地开发版 · 离线模板创作</span><label>身份<select id="actor" aria-label="切换开发体验身份"></select></label></div><div class="topnav"><button id="back" data-action="back" aria-label="返回首页" hidden>←</button><span id="identity">正在载入</span><span class="weixin-capsule" aria-hidden="true">··· │ ◉</span></div><main class="main" id="main"><div class="empty">正在打开你的创作舞台…</div></main><nav class="bottom-nav" aria-label="主要导航"><button data-nav="home" class="active"><i>⌂</i>新声</button><button data-nav="works"><i>▤</i>作品</button><button data-nav="create"><i>♫</i>创作</button><button data-nav="profile"><i>○</i>我的</button></nav></div></div><div class="toast" id="toast" role="status" aria-live="polite"></div><div id="working" class="working" hidden>正在处理…</div><script>(function(){'use strict';const modules={"miniprogram/lib/model.js":function(module,exports,require){
+const GENRES = ['豫剧', '京剧', '越剧', '黄梅戏', '昆曲', '评剧', '其他'];
+const TYPES = [{ id: 'lyrics', label: '原创戏词', cost: 30 }, { id: 'score', label: '曲谱草稿', cost: 120 }, { id: 'both', label: '词谱一体', cost: 140 }];
+const DIMENSIONS = [
+  { key: 'originality', label: '原创与主题', weight: .2 },
+  { key: 'tradition', label: '剧种与文化', weight: .2 },
+  { key: 'completeness', label: '文学音乐完整度', weight: .25 },
+  { key: 'performability', label: '可唱可演性', weight: .2 },
+  { key: 'potential', label: '传播与孵化潜力', weight: .15 }
+];
+const STATUS = { submitted: '待受理', reviewing: '专家评审中', needs_third: '待第三位复核', approved: '评审通过', revision: '建议修改', rejected: '未受理', incubating: '孵化中' };
+const EXTENSIONS = ['txt', 'pdf', 'png', 'jpg', 'jpeg', 'mp3', 'wav', 'm4a', 'mp4', 'mov', 'xml', 'musicxml', 'mid', 'midi'];
+const AGREEMENT_VERSION = 'dev-2026-09-19';
+const POLICY = { welcomePoints: 300, approvalPoints: 500, incubationPoints: 500, passScore: 80, incubationScore: 90, minDimension: 60, disputeGap: 15, jobTimeoutMs: 300000 };
+class DomainError extends Error {
+  constructor(code, message) { super(message); this.code = code; this.name = 'DomainError'; }
+}
+function assert(condition, code, message) { if (!condition) throw new DomainError(code, message); }
+function text(value, max, label, min = 0) {
+  assert(typeof value === 'string', 'VALIDATION', `${label}格式不正确`);
+  const result = value.trim();
+  assert(result.length >= min && result.length <= max, 'VALIDATION', `${label}需为${min}—${max}个字符`);
+  return result;
+}
+function requestId(value) { assert(typeof value === 'string' && /^[a-zA-Z0-9_-]{8,48}$/.test(value), 'VALIDATION', '请求编号不正确'); return value; }
+function scoreTotal(scores) {
+  DIMENSIONS.forEach(d => assert(Number.isInteger(scores[d.key]) && scores[d.key] >= 0 && scores[d.key] <= 100, 'VALIDATION', '每项评分需为0—100的整数'));
+  return Math.round(DIMENSIONS.reduce((sum, d) => sum + scores[d.key] * d.weight, 0) * 10) / 10;
+}
+function scoreDecision(reviews, policy) {
+  if (reviews.length < 2) return { status: 'reviewing' };
+  if (reviews.length === 2 && Math.abs(reviews[0].total - reviews[1].total) > policy.disputeGap) return { status: 'needs_third' };
+  const totals = reviews.map(r => r.total).sort((a, b) => a - b);
+  const total = reviews.length === 3 ? totals[1] : Math.round((totals[0] + totals[1]) * 5) / 10;
+  const dimensions = DIMENSIONS.map(d => ({ key: d.key, label: d.label, value: Math.round(reviews.reduce((n, r) => n + r.scores[d.key], 0) / reviews.length * 10) / 10 }));
+  const passed = total >= policy.passScore && dimensions.every(d => d.value >= policy.minDimension);
+  return { total, dimensions, status: passed ? 'approved' : 'revision', incubationCandidate: passed && total >= policy.incubationScore };
+}
+function validateGeneration(value, kind) {
+  assert(value && typeof value === 'object', 'AI_FORMAT', '生成结果格式错误');
+  const result = { label: 'AI辅助创作草稿', lyrics: '', score: null, notes: text(value.notes || '用于创作讨论，定谱与演出前请专业老师复核。', 1600, '说明') };
+  if (kind !== 'score') result.lyrics = text(value.lyrics, 10000, '生成戏词', 10);
+  if (kind !== 'lyrics') {
+    const s = value.score;
+    assert(s && s.key === 'C' && s.meter === '4/4' && Number.isInteger(s.tempo) && s.tempo >= 40 && s.tempo <= 160, 'AI_FORMAT', '首版曲谱需为C调4/4拍，速度40—160');
+    assert(Array.isArray(s.bars) && s.bars.length >= 2 && s.bars.length <= 32, 'AI_FORMAT', '曲谱需含2—32小节');
+    assert(s.bars.every(b => Array.isArray(b) && b.length === 4 && b.every(n => Number.isInteger(n) && n >= 0 && n <= 7)), 'AI_FORMAT', '每小节需有四个四分音符，音高范围0—7');
+    result.score = { key: 'C', meter: '4/4', tempo: s.tempo, bars: s.bars };
+  }
+  return result;
+}
+function xmlEscape(str) { return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;'); }
+function musicXML(job) {
+  const score = job.result && job.result.score;
+  assert(score, 'NO_SCORE', '该作品没有曲谱');
+  const steps = ['', 'C', 'D', 'E', 'F', 'G', 'A', 'B'];
+  const measures = score.bars.map((bar, i) => `<measure number="${i + 1}">${i === 0 ? '<attributes><divisions>1</divisions><key><fifths>0</fifths></key><time><beats>4</beats><beat-type>4</beat-type></time><clef><sign>G</sign><line>2</line></clef></attributes><direction><sound tempo="' + score.tempo + '"/></direction>' : ''}${bar.map(n => `<note>${n ? '<pitch><step>' + steps[n] + '</step><octave>4</octave></pitch>' : '<rest/>'}<duration>1</duration><type>quarter</type></note>`).join('')}</measure>`).join('');
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 4.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">\n<score-partwise version="4.0"><work><work-title>${xmlEscape(job.input.title)}（AI辅助创作草稿）</work-title></work><identification><creator type="composer">AI辅助创作，待专业复核</creator><encoding><software>有戏新声开发版</software></encoding><miscellaneous><miscellaneous-field name="AI-generated">true</miscellaneous-field><miscellaneous-field name="generation-id">${xmlEscape(job.id)}</miscellaneous-field><miscellaneous-field name="provider">${xmlEscape(job.provider || 'unknown')}</miscellaneous-field></miscellaneous></identification><credit><credit-words>AI辅助创作草稿 · C调四分音符旋律练习 · 非专业定谱</credit-words></credit><part-list><score-part id="P1"><part-name>旋律草稿</part-name></score-part></part-list><part id="P1">${measures}</part></score-partwise>`;
+}
+function generationText(job) {
+  return ['有戏新声 | AI辅助创作草稿', job.input.title, `来源：${job.provider || '未标记'}；记录：${job.id}`, job.result.lyrics, job.result.score ? `1=C  4/4  ♩=${job.result.score.tempo}\n${job.result.score.bars.map(b => b.join(' ')).join(' | ')}` : '', job.result.notes, '公开演出、定谱和商业使用前请专业老师复核。'].filter(Boolean).join('\n\n');
+}
+module.exports = { GENRES, TYPES, DIMENSIONS, STATUS, EXTENSIONS, AGREEMENT_VERSION, POLICY, DomainError, assert, text, requestId, scoreTotal, scoreDecision, validateGeneration, musicXML, generationText };
+
+},
+"miniprogram/lib/core.js":function(module,exports,require){
+const M = require('./model');
+const { assert, text, requestId } = M;
+const FINAL_STATES = ['approved', 'revision', 'incubating'];
+
+function createService(options) {
+  const { repo } = options;
+  const now = options.now || (() => Date.now());
+  const policy = Object.assign({}, M.POLICY, options.policy || {});
+  const flags = Object.assign({ generation: false, comments: false, showcase: false }, options.features || {});
+  const admins = options.adminIds || [];
+  function record(kind, id, fields) { return Object.assign({ id, kind, createdAt: now(), updatedAt: now() }, fields); }
+  async function user(tx, actor) {
+    assert(typeof actor === 'string' && /^[a-zA-Z0-9_-]{3,80}$/.test(actor), 'UNAUTHENTICATED', '请先登录');
+    let value = await tx.get(`user_${actor}`);
+    if (!value) {
+      value = record('user', `user_${actor}`, { ownerId: actor, nickname: '新声创作者', bio: '', genre: '豫剧', role: admins.includes(actor) ? 'admin' : 'creator', points: policy.welcomePoints, activeJobId: '', profileConsent: false, publicProfile: null });
+      await tx.set(value.id, value);
+      await tx.set(`welcome_${actor}`, record('ledger', `welcome_${actor}`, { ownerId: actor, delta: policy.welcomePoints, reason: '新用户创作体验积分', balance: policy.welcomePoints }));
+    }
+    // 管理员身份只能由服务端环境授权，客户端传入的 role 无效。
+    if (admins.includes(actor) && value.role !== 'admin') { value.role = 'admin'; await tx.set(value.id, value); }
+    if (!admins.includes(actor) && value.role === 'admin') { value.role = 'creator'; await tx.set(value.id, value); }
+    return value;
+  }
+  function requireAdmin(u) { assert(u.role === 'admin', 'FORBIDDEN', '仅运营管理员可以操作'); }
+  async function need(tx, id, kind) {
+    assert(typeof id === 'string' && id.length <= 160, 'VALIDATION', '记录编号不正确');
+    const value = await tx.get(id); assert(value && value.kind === kind, 'NOT_FOUND', '记录不存在'); return value;
+  }
+  function canRead(u, work) { return work.ownerId === u.ownerId || u.role === 'admin' || work.expertIds.includes(u.id); }
+  function publicWork(w) {
+    return { id: w.id, title: w.title, genre: w.genre, workType: w.workType, authorName: w.authorName, authorId: w.authorId, text: w.text, aiUse: w.aiUse, status: w.status, total: w.total, dimensions: w.dimensions, createdAt: w.createdAt, published: true, reviews: [] };
+  }
+  function workFor(u, w) {
+    if (!canRead(u, w)) { assert(flags.showcase && w.published, 'FORBIDDEN', '你没有查看这份投稿的权限'); return publicWork(w); }
+    const result = Object.assign({}, w);
+    if (u.role === 'expert' && !FINAL_STATES.includes(w.status)) result.reviews = w.reviews.filter(r => r.expertId === u.id);
+    return result;
+  }
+  async function ledger(tx, u, id, delta, reason, referenceId) {
+    if (await tx.get(id)) return;
+    u.points += delta;
+    assert(u.points >= 0, 'INSUFFICIENT_POINTS', '创作积分不足');
+    await tx.set(u.id, u);
+    await tx.set(id, record('ledger', id, { ownerId: u.ownerId, delta, reason, referenceId: referenceId || '', balance: u.points }));
+  }
+  async function audit(tx, actor, action, targetId, suffix) {
+    const id = `audit_${targetId}_${action}_${suffix || now()}`;
+    await tx.set(id, record('audit', id, { ownerId: actor, action, targetId }));
+  }
+  async function finishJob(actor, jobId, result, failure) {
+    return repo.transact(async tx => {
+      const u = await user(tx, actor); const job = await need(tx, jobId, 'job');
+      assert(job.ownerId === actor, 'FORBIDDEN', '不能操作他人的生成记录');
+      if (job.status !== 'pending') return job;
+      job.status = failure ? 'failed' : 'completed'; job.updatedAt = now();
+      if (failure) { job.error = failure; await ledger(tx, u, `refund_${job.id}`, job.cost, '生成失败退回积分', job.id); }
+      else job.result = result;
+      if (u.activeJobId === job.id) u.activeJobId = '';
+      await tx.set(u.id, u); await tx.set(job.id, job); return job;
+    });
+  }
+  async function run(actor, action, input = {}) {
+    const u = await repo.transact(tx => user(tx, actor));
+    if (action === 'bootstrap') {
+      const experts = await repo.list('user', { role: 'expert' });
+      const works = flags.showcase ? await repo.list('work', { published: true }) : [];
+      const people = flags.showcase ? await repo.list('user', { profilePublished: true }) : [];
+      return { user: u, features: flags, policy, agreementVersion: M.AGREEMENT_VERSION, experts: experts.map(e => ({ id: e.id, nickname: e.nickname, genre: e.genre, bio: e.bio })), showcase: works.map(publicWork), creators: people.map(p => ({ id: p.id, ...p.publicProfile })) };
+    }
+    if (action === 'dashboard') return { user: u, works: await repo.list('work', { ownerId: actor }), jobs: await repo.list('job', { ownerId: actor }), ledger: await repo.list('ledger', { ownerId: actor }) };
+    if (action === 'saveProfile') {
+      const nickname = text(input.nickname, 20, '昵称', 2), bio = text(input.bio || '', 300, '个人介绍');
+      assert(M.GENRES.includes(input.genre), 'VALIDATION', '请选择剧种');
+      return repo.transact(async tx => {
+        const current = await user(tx, actor);
+        Object.assign(current, { nickname, bio, genre: input.genre, profileConsent: input.profileConsent === true, updatedAt: now() });
+        if (!current.profileConsent) { current.publicProfile = null; current.profilePublished = false; }
+        await tx.set(current.id, current); return current;
+      });
+    }
+    if (action === 'submit') {
+      const rid = requestId(input.requestId), id = `work_${actor}_${rid}`;
+      const existing = await repo.get(id); if (existing) return existing;
+      const title = text(input.title, 40, '作品标题', 2), body = text(input.text || '', 12000, '作品正文');
+      assert(M.GENRES.includes(input.genre), 'VALIDATION', '请选择剧种');
+      assert(M.TYPES.some(t => t.id === input.workType), 'VALIDATION', '请选择作品类型');
+      assert(['none', 'assisted', 'generated'].includes(input.aiUse), 'VALIDATION', '请注明AI参与程度');
+      assert(input.original === true && input.reviewConsent === true && input.adult === true && input.agreementVersion === M.AGREEMENT_VERSION, 'CONSENT_REQUIRED', '请确认原创声明、评审授权和成年声明');
+      let files = input.files || [];
+      assert(Array.isArray(files) && files.length <= 3, 'VALIDATION', '最多上传3个附件');
+      files = files.map(f => {
+        assert(f && typeof f.fileId === 'string', 'VALIDATION', '附件格式不正确');
+        const name = text(f.name, 120, '文件名', 1), ext = name.split('.').pop().toLowerCase();
+        assert(M.EXTENSIONS.includes(ext), 'FILE_TYPE', '附件类型暂不支持');
+        assert(Number.isFinite(f.size) && f.size > 0 && f.size <= 20 * 1024 * 1024, 'FILE_SIZE', '每个附件需小于20MB');
+        return { fileId: f.fileId, name, size: f.size };
+      });
+      assert(body.length >= 20 || files.length > 0, 'VALIDATION', '请填写至少20字正文或上传作品文件');
+      if (files.length) { assert(options.validateFiles, 'UPLOAD_DISABLED', '文件服务暂不可用'); files = await options.validateFiles(actor, files); }
+      return repo.transact(async tx => {
+        const prior = await tx.get(id); if (prior) return prior;
+        const author = await user(tx, actor);
+        const work = record('work', id, { ownerId: actor, authorId: author.id, authorName: author.nickname, title, text: body, genre: input.genre, workType: input.workType, aiUse: input.aiUse, files, original: true, adult: true, reviewConsent: true, allowDisplay: input.allowDisplay === true, agreementVersion: M.AGREEMENT_VERSION, status: 'submitted', expertIds: [], reviews: [], version: 1, published: false, benefits: [], total: null, dimensions: [] });
+        await tx.set(id, work); await audit(tx, actor, 'submit', id, 'v1'); return work;
+      });
+    }
+    if (action === 'getWork') return workFor(u, await need(repo, input.id, 'work'));
+    if (action === 'fileLinks') {
+      const work = await need(repo, input.id, 'work'); assert(canRead(u, work), 'FORBIDDEN', '附件只对作者、指定专家和运营开放');
+      assert(options.fileLinks, 'UPLOAD_DISABLED', '附件服务未配置'); return options.fileLinks(work.files);
+    }
+    if (action === 'desk') {
+      assert(['admin', 'expert'].includes(u.role), 'FORBIDDEN', '仅评审与运营人员可以进入');
+      const works = u.role === 'admin' ? await repo.list('work', {}) : await repo.list('work', { expertIds: u.id });
+      return { works: works.map(w => workFor(u, w)), users: u.role === 'admin' ? await repo.list('user', {}) : [], comments: u.role === 'admin' ? await repo.list('comment', { status: 'pending' }) : [], reports: u.role === 'admin' ? await repo.list('report', { status: 'pending' }) : [] };
+    }
+    if (action === 'grantExpert') {
+      return repo.transact(async tx => {
+        requireAdmin(await user(tx, actor)); const person = await need(tx, input.userId, 'user');
+        assert(person.role !== 'admin', 'VALIDATION', '运营身份不能同时用作独立评审');
+        assert(input.verified === true, 'CONSENT_REQUIRED', '请先核验专家身份与合作授权');
+        person.role = 'expert'; person.expertVerifiedAt = now(); await tx.set(person.id, person); await audit(tx, actor, 'grantExpert', person.id); return person;
+      });
+    }
+    if (action === 'assign') {
+      return repo.transact(async tx => {
+        requireAdmin(await user(tx, actor)); const w = await need(tx, input.id, 'work');
+        assert(['submitted', 'needs_third'].includes(w.status), 'STATE', '当前状态不能分配专家');
+        const ids = input.expertIds;
+        assert(Array.isArray(ids) && new Set(ids).size === ids.length && ids.length === (w.status === 'needs_third' ? 3 : 2), 'VALIDATION', '初评需2位专家，复核需保留原专家并增加第3位');
+        for (const id of ids) { const expert = await need(tx, id, 'user'); assert(expert.role === 'expert' && expert.ownerId !== w.ownerId, 'CONFLICT', '只能选择已核验的独立专家，且不能评审自己的作品'); }
+        assert(w.reviews.every(r => ids.includes(r.expertId)), 'STATE', '不能移除已经提交评审的专家');
+        w.expertIds = ids; w.status = 'reviewing'; w.updatedAt = now();
+        await tx.set(w.id, w); await audit(tx, actor, 'assign', w.id); return w;
+      });
+    }
+    if (action === 'review') {
+      const total = M.scoreTotal(input.scores || {}), comment = text(input.comment, 2400, '评审意见', 20);
+      assert(input.noConflict === true, 'CONFLICT', '请先确认不存在利益冲突');
+      return repo.transact(async tx => {
+        const expert = await user(tx, actor); const w = await need(tx, input.id, 'work');
+        assert(expert.role === 'expert' && w.expertIds.includes(expert.id) && w.ownerId !== actor, 'FORBIDDEN', '你不是这份作品的指定独立评审');
+        const previous = w.reviews.find(r => r.expertId === expert.id);
+        if (previous) { assert(previous.total === total && previous.comment === comment && M.DIMENSIONS.every(d => previous.scores[d.key] === input.scores[d.key]), 'IMMUTABLE', '评审提交后不可修改'); return workFor(expert, w); }
+        assert(w.status === 'reviewing', 'STATE', '作品不在评审阶段');
+        const scores = {}; M.DIMENSIONS.forEach(d => { scores[d.key] = input.scores[d.key]; });
+        w.reviews.push({ expertId: expert.id, name: expert.nickname, scores, total, comment, noConflict: true, createdAt: now(), version: w.version });
+        if (w.reviews.length === w.expertIds.length) Object.assign(w, M.scoreDecision(w.reviews, policy));
+        w.updatedAt = now();
+        if (w.status === 'approved') {
+          const author = await need(tx, w.authorId, 'user');
+          await ledger(tx, author, `award_${w.id}`, policy.approvalPoints, '作品通过评审奖励', w.id);
+          w.benefits = [{ name: '免费专业集体点评', status: '待运营安排' }, { name: '创作修改任务书', status: '待导师安排' }];
+        }
+        await tx.set(w.id, w); await audit(tx, actor, 'review', w.id, expert.id); return workFor(expert, w);
+      });
+    }
+    if (action === 'rejectWork') {
+      const reason = text(input.reason, 500, '未受理原因', 5);
+      return repo.transact(async tx => { requireAdmin(await user(tx, actor)); const w = await need(tx, input.id, 'work'); assert(w.status === 'submitted', 'STATE', '只能退回尚未分配专家的投稿'); w.status = 'rejected'; w.rejectionReason = reason; await tx.set(w.id, w); await audit(tx, actor, 'reject', w.id); return w; });
+    }
+    if (action === 'publishWork' || action === 'incubate' || action === 'revokeDisplay') {
+      return repo.transact(async tx => {
+        const current = await user(tx, actor); const w = await need(tx, input.id, 'work');
+        if (action === 'revokeDisplay') { assert(current.role === 'admin' || w.ownerId === actor, 'FORBIDDEN', '仅作者或运营可撤回展示'); w.published = false; w.allowDisplay = false; }
+        else {
+          requireAdmin(current); assert(['approved', 'incubating'].includes(w.status), 'STATE', '需先通过专家评审');
+          if (action === 'publishWork') { assert(flags.showcase, 'FEATURE_DISABLED', '作品展示暂未开放'); assert(w.allowDisplay, 'CONSENT_REQUIRED', '作者未授权公开展示'); w.published = input.published === true; }
+          else {
+            assert(w.incubationCandidate, 'STATE', '尚未达到孵化候选条件');
+            const schedule = text(input.schedule, 300, '培训安排', 5);
+            const author = await need(tx, w.authorId, 'user');
+            await ledger(tx, author, `incubation_${w.id}`, policy.incubationPoints, '孵化计划入选奖励', w.id);
+            w.status = 'incubating'; w.incubationSchedule = schedule;
+            w.benefits = [{ name: '免费专业培训', status: schedule }, { name: '导师作品打磨', status: '待导师安排' }];
+          }
+        }
+        w.updatedAt = now(); await tx.set(w.id, w); await audit(tx, actor, action, w.id); return w;
+      });
+    }
+    if (action === 'publishProfile') {
+      return repo.transact(async tx => {
+        requireAdmin(await user(tx, actor)); assert(flags.showcase, 'FEATURE_DISABLED', '个人主页展示暂未开放');
+        const p = await need(tx, input.userId, 'user');
+        if (input.published === true) { assert(p.profileConsent, 'CONSENT_REQUIRED', '该用户尚未授权展示个人主页'); p.publicProfile = { nickname: p.nickname, bio: p.bio, genre: p.genre }; p.profilePublished = true; }
+        else { p.publicProfile = null; p.profilePublished = false; }
+        await tx.set(p.id, p); await audit(tx, actor, 'publishProfile', p.id); return p;
+      });
+    }
+    if (action === 'creator') {
+      assert(flags.showcase, 'FEATURE_DISABLED', '个人主页暂未开放'); const p = await need(repo, input.id, 'user');
+      assert(p.profilePublished && p.publicProfile, 'NOT_FOUND', '主页尚未公开');
+      return { id: p.id, ...p.publicProfile, works: (await repo.list('work', { authorId: p.id, published: true })).map(publicWork), comments: flags.comments ? (await repo.list('comment', { targetId: p.id, status: 'approved' })).map(c => ({ id: c.id, authorName: c.authorName, text: c.text, createdAt: c.createdAt })) : [] };
+    }
+    if (action === 'comment') {
+      assert(flags.comments, 'FEATURE_DISABLED', '评论暂未开放'); const body = text(input.text, 500, '评论', 2); const id = `comment_${actor}_${requestId(input.requestId)}`;
+      return repo.transact(async tx => {
+        const previous = await tx.get(id); if (previous) return previous;
+        const target = await need(tx, input.targetId, 'user'); assert(target.profilePublished && target.publicProfile, 'NOT_FOUND', '主页尚未公开');
+        const c = record('comment', id, { ownerId: actor, targetId: target.id, authorName: u.nickname, text: body, status: 'pending' });
+        await tx.set(id, c); return c;
+      });
+    }
+    if (action === 'moderateComment') {
+      return repo.transact(async tx => { requireAdmin(await user(tx, actor)); const c = await need(tx, input.id, 'comment'); assert(['approved', 'rejected'].includes(input.status), 'VALIDATION', '审核状态不正确'); c.status = input.status; c.updatedAt = now(); await tx.set(c.id, c); await audit(tx, actor, 'moderateComment', c.id); return c; });
+    }
+    if (action === 'report') {
+      const reason = text(input.reason, 500, '举报原因', 5), id = `report_${actor}_${requestId(input.requestId)}`;
+      return repo.transact(async tx => { const prior = await tx.get(id); if (prior) return prior; const target = await tx.get(input.targetId); assert(target && (target.kind === 'work' && target.published || target.kind === 'user' && target.profilePublished || target.kind === 'comment' && target.status === 'approved'), 'NOT_FOUND', '该公开内容已不可用'); const r = record('report', id, { ownerId: actor, targetId: target.id, reason, status: 'pending' }); await tx.set(id, r); return r; });
+    }
+    if (action === 'resolveReport') {
+      return repo.transact(async tx => {
+        requireAdmin(await user(tx, actor)); const r = await need(tx, input.id, 'report');
+        assert(['remove', 'dismiss'].includes(input.resolution), 'VALIDATION', '请选择处理结果');
+        if (input.resolution === 'remove') { const target = await tx.get(r.targetId); if (target) { if (target.kind === 'work') target.published = false; if (target.kind === 'user') { target.profilePublished = false; target.publicProfile = null; } if (target.kind === 'comment') target.status = 'rejected'; await tx.set(target.id, target); } }
+        r.status = 'resolved'; r.resolution = input.resolution; r.updatedAt = now(); await tx.set(r.id, r); await audit(tx, actor, 'resolveReport', r.id); return r;
+      });
+    }
+    if (action === 'generate') {
+      assert(flags.generation && options.generate, 'AI_UNAVAILABLE', '创作服务尚未启用，未扣除积分');
+      const kind = M.TYPES.find(t => t.id === input.workType); assert(kind, 'VALIDATION', '请选择生成类型');
+      assert(M.GENRES.includes(input.genre), 'VALIDATION', '请选择剧种');
+      assert(input.aiConsent === true, 'CONSENT_REQUIRED', '请确认AI草稿使用说明');
+      const brief = { title: text(input.title, 60, '创作主题', 2), genre: input.genre, workType: kind.id, scene: text(input.scene, 600, '人物与场景', 5) };
+      const id = `job_${actor}_${requestId(input.requestId)}`;
+      const prepared = await repo.transact(async tx => {
+        const prior = await tx.get(id); if (prior) return { job: prior, fresh: false };
+        const author = await user(tx, actor);
+        assert(!author.activeJobId, 'JOB_PENDING', '上一份作品仍在生成，请查看生成记录或在超时后退回积分');
+        assert(author.points >= kind.cost, 'INSUFFICIENT_POINTS', '创作积分不足');
+        const job = record('job', id, { ownerId: actor, input: brief, cost: kind.cost, status: 'pending', provider: options.providerName || '未命名模型服务', expiresAt: now() + policy.jobTimeoutMs });
+        author.activeJobId = id;
+        await ledger(tx, author, `charge_${id}`, -kind.cost, '创作任务扣除积分', id); await tx.set(id, job); return { job, fresh: true };
+      });
+      if (!prepared.fresh) return prepared.job;
+      try { const result = M.validateGeneration(await options.generate(brief), kind.id); return await finishJob(actor, id, result); }
+      catch (err) { return finishJob(actor, id, null, err.code === 'AI_FORMAT' ? '生成内容未通过格式检查，积分已退回。' : '生成服务暂不可用，积分已退回。'); }
+    }
+    if (action === 'recoverGeneration') {
+      const job = await need(repo, input.id, 'job'); assert(job.ownerId === actor, 'FORBIDDEN', '只能处理自己的生成任务');
+      if (job.status !== 'pending') return job;
+      assert(now() >= job.expiresAt, 'NOT_EXPIRED', '任务尚未超时，请稍后刷新'); return finishJob(actor, job.id, null, '任务超时，积分已退回。');
+    }
+    throw new M.DomainError('UNKNOWN_ACTION', '不支持的操作');
+  }
+  return { run };
+}
+module.exports = { createService };
+
+},
+"miniprogram/lib/local.js":function(module,exports,require){
+const { createService } = require('./core');
+const KEY = 'youxi-xinsheng-dev-v2';
+function createMemoryRepository(initial, persist) {
+  let state = JSON.parse(JSON.stringify(initial || {})); let queue = Promise.resolve();
+  const clone = v => v == null ? null : JSON.parse(JSON.stringify(v));
+  const get = async id => clone(state[id]);
+  const list = async (kind, filters) => Object.values(state).filter(v => v.kind === kind && Object.keys(filters).every(k => Array.isArray(v[k]) ? v[k].includes(filters[k]) : v[k] === filters[k])).sort((a, b) => b.createdAt - a.createdAt).slice(0, 200).map(clone);
+  const transact = fn => {
+    const job = queue.then(async () => {
+      const draft = clone(state);
+      const tx = { get: async id => clone(draft[id]), set: async (id, v) => { draft[id] = clone(v); } };
+      const result = await fn(tx);
+      if (persist) await persist(draft);
+      state = draft;
+      return clone(result);
+    });
+    queue = job.catch(() => {}); return job;
+  };
+  return { get, list, transact, snapshot: () => clone(state) };
+}
+const ACTORS = [
+  { id: 'demo_creator', label: '投稿人 · 我', nickname: '听棠', role: 'creator', bio: '从一句唱词开始，记录我的第一部原创小戏。', genre: '豫剧' },
+  { id: 'demo_expert_a', label: '专家甲 · 戏词', nickname: '示例戏词老师', role: 'expert', bio: '开发体验身份，用于验证戏词评审流程。', genre: '豫剧' },
+  { id: 'demo_expert_b', label: '专家乙 · 音乐', nickname: '示例作曲老师', role: 'expert', bio: '开发体验身份，用于验证音乐与可唱性评审。', genre: '豫剧' },
+  { id: 'demo_expert_c', label: '专家丙 · 复核', nickname: '示例复核老师', role: 'expert', bio: '开发体验身份，用于验证分差复核流程。', genre: '京剧' },
+  { id: 'demo_admin', label: '运营管理员', nickname: '有戏新声运营', role: 'admin', bio: '开发版运营工作台', genre: '豫剧' }
+];
+async function demoGenerate(input) {
+  const bars = [[1, 2, 3, 5], [6, 5, 3, 2], [3, 5, 6, 5], [3, 2, 1, 0], [2, 3, 5, 6], [5, 3, 2, 3], [5, 6, 5, 3], [2, 1, 1, 0]];
+  return { lyrics: `【${input.title}】\n一盏灯，照过旧门台，\n半卷心事缓缓来。\n欲将往事轻轻问，\n又把离愁袖底埋。\n今夜不辞千里路，\n愿留新声待春开。`, score: { key: 'C', meter: '4/4', tempo: 72, bars }, notes: `离线模板样稿，用于验证流程，并非真实大模型生成，也不代表${input.genre}的专业唱腔。创作简报：${input.scene}。旋律为C调4/4拍四分音符练习；词曲尚未逐字配唱。` };
+}
+function makeDemoService(repo, extra) {
+  return createService(Object.assign({ repo, adminIds: ['demo_admin'], features: { generation: true, comments: true, showcase: true }, providerName: '离线模板演示（非真实AI）', generate: demoGenerate, validateFiles: async (actor, files) => { files.forEach(f => { if (!f.fileId.startsWith('local:')) throw new Error('仅支持本地附件'); }); return files; }, fileLinks: async files => files }, extra || {}));
+}
+async function seedDemo(repo, service) {
+  if (await repo.get('demo_seed_v2')) return;
+  for (const a of ACTORS) {
+    await service.run(a.id, 'bootstrap');
+    await service.run(a.id, 'saveProfile', { nickname: a.nickname, bio: a.bio, genre: a.genre, profileConsent: true });
+    if (a.role === 'expert') await service.run('demo_admin', 'grantExpert', { userId: `user_${a.id}`, verified: true });
+  }
+  const w = await service.run('demo_creator', 'submit', { requestId: 'seed_work_0001', title: '归燕 · 春信', genre: '豫剧', workType: 'lyrics', text: '檐角一声春又晚，归燕衔泥过旧关。\n母亲灯下缝新袖，未问归期先问寒。\n我把乡音藏心底，今朝唱与故人看。', aiUse: 'assisted', original: true, adult: true, reviewConsent: true, allowDisplay: true, agreementVersion: require('./model').AGREEMENT_VERSION });
+  await service.run('demo_admin', 'assign', { id: w.id, expertIds: ['user_demo_expert_a', 'user_demo_expert_b'] });
+  for (const a of ['demo_expert_a', 'demo_expert_b']) await service.run(a, 'review', { id: w.id, scores: { originality: 92, tradition: 90, completeness: 91, performability: 93, potential: 90 }, comment: '开发演示评语：人物关系清晰，建议把后两句的情感转折进一步落到行动，再请老师确认气口。', noConflict: true });
+  await service.run('demo_admin', 'publishWork', { id: w.id, published: true });
+  await service.run('demo_admin', 'publishProfile', { userId: 'user_demo_creator', published: true });
+  await repo.transact(tx => tx.set('demo_seed_v2', { id: 'demo_seed_v2', kind: 'meta' }));
+}
+module.exports = { KEY, ACTORS, createMemoryRepository, makeDemoService, seedDemo, demoGenerate };
+
+},
+"miniprogram/lib/agreements.js":function(module,exports,require){
+module.exports = [
+  { title: '开发版与服务范围', body: '这是有戏新声开发验收版本。运营主体、客服、专家合同与活动规则确认后方可公开运营。首版面向18周岁及以上用户，提供原创投稿、独立评审、创作草稿和经授权审核的图文展示。评审通过不承诺签约、商业收入或走红。' },
+  { title: '投稿与作品权利', body: '作者应拥有提交作品所需权利，说明引用、改编、合作创作来源及AI参与程度。提交仅授予平台和指定专家为保存、审核、评审所必要的有限处理许可，作品原有权利不因投稿转移。公开正文与署名需要另行勾选同意，并可在作品详情撤回。改编、商业发行、演出及独家使用须另签协议。首版不公开播放投稿附件。' },
+  { title: '评审、培训与奖励', body: '作品提交后版本冻结。两位经核验的独立专家按五个维度评分，分差大于15分时增加第三位复核；两位取均分，三位取总分中位数，单项按各位均分。综合分达到80且每项均分不低于60时通过。开发默认通过奖励500积分，并建立免费集体点评及修改任务书待安排权益；90分以上成为孵化候选，运营确认具体安排后再发500积分。积分无现金价值，不可提现。正式活动须公布名额、时间、实际服务及变更机制。' },
+  { title: 'AI辅助创作与积分', body: '离线模式使用固定模板进行流程体验，并非真实AI生成。真实模型启用后，创作简报会传给配置的服务商，仅发送主题、剧种、创作类型及场景，不发送用户账号、私密投稿和个人档案。生成先扣积分，失败或超时确认后退回。输出为AI辅助创作草稿；曲谱当前限C调4/4拍四分音符旋律练习，不代表专业剧种唱腔，不保证词曲已逐字配唱。输出及导出保留AI标识。当前不提供现金支付、充值及退款业务。' },
+  { title: '个人信息与存储', body: '开发离线数据仅存于当前设备；云模式处理微信OpenID、主动填写的昵称、介绍、剧种、作品文件、评审、评论、举报和积分记录。用途是识别账号、保存作品、分配专家、完成评审及处理投诉。私密附件只对本人、指定专家及运营可见。公开主页使用运营审核后的资料快照，修改资料后需重新审核。生产上线前运营方须明确保存期限、注销与删除渠道、服务商名单及个人信息联络方式，并填写微信用户隐私保护指引。' },
+  { title: '社区与投诉', body: '评论启用时，评论先审核再公开。禁止侵权、骚扰、侮辱、违法和与创作无关的广告。用户可从公开主页或作品举报，运营可下架内容并记录处理结论。个人主页授权可在“我的”取消，作品正文授权可在作品详情撤回。投诉补充证据及申诉请通过正式上线后公示的客服渠道提交。' }
+];
+
+},
+"preview/app.js":function(module,exports,require){
+const M = require('../miniprogram/lib/model');
+const L = require('../miniprogram/lib/local');
+const policies = require('../miniprogram/lib/agreements');
+const $ = selector => document.querySelector(selector);
+const esc = value => String(value == null ? '' : value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const rid = () => 'r' + Date.now().toString(36) + Math.random().toString(36).slice(2, 12);
+const date = value => new Date(value).toLocaleDateString('zh-CN');
+let actor = localStorage.getItem(L.KEY + ':actor') || 'demo_creator';
+if (!L.ACTORS.some(a => a.id === actor)) actor = 'demo_creator';
+let state = { page: 'home', id: '', session: null, dashboard: null, detail: null, desk: null, creator: null, job: null, error: '', toast: '' };
+let repo, service;
+let busy = false;
+let draftFiles = [];
+let draftId = rid();
+let jobRequestId = '';
+let commentId = '';
+const calls = (action, data = {}) => service.run(actor, action, data);
+function field(label, inner, note) { return `<label class="field"><span>${label}</span>${inner}${note ? `<small>${note}</small>` : ''}</label>`; }
+const select = (name, choices, value) => `<select name="${name}">${choices.map(c => `<option value="${esc(c.id || c)}" ${(c.id || c) === value ? 'selected' : ''}>${esc(c.label || c)}</option>`).join('')}</select>`;
+const button = (label, action, extra = '', klass = 'primary') => `<button type="button" class="${klass}" data-action="${action}" ${extra}>${label}</button>`;
+function toast(text) { state.toast = text; $('#toast').textContent = text; $('#toast').classList.add('visible'); setTimeout(() => $('#toast').classList.remove('visible'), 3500); }
+function workCard(w, small = false) {
+  return `<button type="button" class="work-card" data-action="work" data-id="${esc(w.id)}"><div class="flex between"><div><span class="tag">${esc(w.genre)}</span><span class="tag green">${esc(M.STATUS[w.status])}</span></div>${w.total != null ? `<span class="number-score">${w.total}<small>分</small></span>` : `<span class="muted">${(w.reviews || []).length}份评审</span>`}</div><h3>${esc(w.title)}</h3>${small ? '' : `<p class="excerpt clamp">${esc(w.text)}</p>`}<div class="card-footer"><span>${esc(w.authorName)} · ${esc(M.TYPES.find(t => t.id === w.workType).label)}</span><span>查看作品 ↗</span></div></button>`;
+}
+function home() {
+  const session = state.session;
+  return `<div class="brand-row"><div><span class="eyebrow">YOUXI XINSHENG</span><h2>有戏新声<span class="brand-dot">·</span></h2></div><span class="edition">青年戏曲共创计划</span></div>
+    <section class="stage"><div class="stage-arch"></div><div class="stage-circle"></div><div class="stage-lines"></div><span class="stage-index">第一幕 / 从热爱出发</span><div class="seal">有<br>戏</div><h1>你的故事，<br>值得一座戏台。</h1><div class="gold-rule"></div><p>从一段戏词、一支旋律开始。<br>让专业老师听见，让下一步创作发生。</p>${button('提交我的作品 <span>↗</span>', 'submit-page', '', 'stage-button')}</section>
+    <div class="journey"><div><i>01</i><strong>原创投稿</strong><small>把灵感交给舞台</small></div><span>→</span><div><i>02</i><strong>专业评审</strong><small>让打磨有方向</small></div><span>→</span><div><i>03</i><strong>成长孵化</strong><small>让热爱走得更远</small></div></div>
+    <button class="studio-invite" data-action="create-page"><div class="studio-symbol">♫</div><div><strong>戏词与旋律，先有第一稿</strong><small>灵感成词 · 积分创作 · 词谱导出</small></div><span>↗</span></button>
+    <div class="section-heading"><h2>本期新声</h2><span>经授权与审核后展出</span></div>${session.showcase.length ? session.showcase.map(w => workCard(w)).join('') : '<div class="empty">下一份新声，可能就是你。<br>作品通过评审与展示审核后，会出现在这里。</div>'}
+    <div class="section-heading"><h2>创作者的另一面</h2><span>认识作品背后的人</span></div>${session.creators.map(c => `<button class="creator-card" data-action="creator" data-id="${esc(c.id)}"><span class="avatar">${esc(c.nickname[0])}</span><div><strong>${esc(c.nickname)}</strong><p>${esc(c.bio)}</p></div><span>→</span></button>`).join('')}
+    <div class="footnote">每一声热爱，都值得认真回应。<br>YOUXI XINSHENG / 有戏新声</div>`;
+}
+function submission() {
+  const saved = JSON.parse(localStorage.getItem(`youxi:draft:${actor}`) || 'null') || {};
+  if (saved.requestId) draftId = saved.requestId;
+  draftFiles = saved.files || [];
+  const textValue = saved.text || '';
+  return `${heading('ORIGINAL SUBMISSION', '让作品，先被听见。', '投稿默认私密。草稿会自动保存在本机。')}<form id="submit-form">
+    ${field('作品标题', `<input name="title" value="${esc(saved.title || '')}" maxlength="40" placeholder="例如：归燕 · 春信" required>`)}
+    <div class="two-col">${field('剧种', select('genre', M.GENRES, saved.genre || '豫剧'))}${field('投稿类型', select('workType', M.TYPES, saved.workType || 'lyrics'))}</div>
+    ${field('正文 / 创作说明', `<textarea name="text" maxlength="12000" placeholder="写下唱词，或说明作品中的人物、场景与创作想法。">${esc(textValue)}</textarea>`, '至少20字，或上传作品附件。评审期间作品版本冻结。')}
+    <div class="field"><span>附件（可选）</span><label class="upload"><span>＋ 添加戏词、曲谱或音视频</span><small>最多3份 · 每份20MB以内 · 保存在本机</small><input id="files" type="file" multiple accept=".txt,.pdf,.png,.jpg,.jpeg,.mp3,.wav,.m4a,.mp4,.mov,.xml,.musicxml,.mid,.midi"></label><div id="file-list">${fileList()}</div></div>
+    ${field('AI参与程度', select('aiUse', [{ id: 'none', label: '未使用AI' }, { id: 'assisted', label: 'AI辅助修改' }, { id: 'generated', label: '主要由AI生成' }], saved.aiUse || 'none'))}
+    ${check('adult', '我已年满18周岁。开发首版仅面向成年人。', saved.adult)}
+    ${check('original', '我确认拥有作品提交权，并已说明引用、改编来源和AI参与。', saved.original)}
+    ${check('reviewConsent', '同意投稿规则与隐私说明，授权平台和指定专家为评审处理投稿。', saved.reviewConsent)}
+    ${check('allowDisplay', '自愿允许作品通过评审后，经运营审核公开正文与署名（不含附件公开播放）。', saved.allowDisplay)}
+    ${button('阅读投稿规则与隐私说明', 'policy', '', 'text-button')}<button class="primary full" type="submit">确认并提交评审 <span>→</span></button></form>`;
+}
+function check(name, label, checked) { return `<label class="check"><input type="checkbox" name="${name}" ${checked ? 'checked' : ''}><span>${label}</span></label>`; }
+function heading(eyebrow, title, subtitle) { return `<div class="page-heading"><span class="eyebrow">${eyebrow}</span><h1>${title}</h1>${subtitle ? `<p>${subtitle}</p>` : ''}</div>`; }
+function fileList() { return draftFiles.map((f, i) => `<div class="file-row"><span>${esc(f.name)} <small>${(f.size / 1024).toFixed(0)} KB</small></span>${button('移除', 'remove-file', `data-index="${i}"`, 'text-button')}</div>`).join(''); }
+function works() { return `${heading('MY CREATIVE JOURNEY', '我的作品', '每一次修改，都离舞台近一点。')}${button('＋ 提交新作品', 'submit-page', '', 'primary full spaced')}<div class="spaced">${state.dashboard.works.length ? state.dashboard.works.map(w => workCard(w)).join('') : '<div class="empty">你还没有提交作品。<br>一段戏词、清唱小样都可以成为开始。</div>'}</div>`; }
+function detail() {
+  const w = state.detail, u = state.session.user;
+  const admin = u.role === 'admin', mine = w.ownerId === u.ownerId;
+  const canReview = u.role === 'expert' && w.status === 'reviewing' && w.expertIds.includes(u.id) && !w.reviews.some(r => r.expertId === u.id);
+  return `<div class="flex between"><span class="tag green">${M.STATUS[w.status]}</span><span class="muted">${date(w.createdAt)}</span></div>${heading('THE ORIGINAL WORK', esc(w.title), `${esc(w.authorName)} · ${esc(w.genre)} · 冻结版本${w.version || 1}`)}<div class="paper"><div class="excerpt pre">${esc(w.text)}</div><div class="divider"></div><span class="muted">${w.aiUse === 'none' ? '作者声明未使用AI' : '包含AI辅助创作内容'}</span></div>
+    ${(w.files || []).map((f, i) => `<div class="file-row"><span>${esc(f.name)}</span>${button('打开附件 ↗', 'open-file', `data-index="${i}"`, 'text-button')}</div>`).join('')}
+    ${w.rejectionReason ? `<div class="notice">未受理原因：${esc(w.rejectionReason)}</div>` : ''}
+    <div class="section-heading"><h2>专业评审</h2><span>人气与付费不影响结论</span></div><div class="paper">${w.total != null ? `<div class="flex between"><div><span class="muted">专业综合评分</span><p>下一步：${M.STATUS[w.status]}</p></div><strong class="big-score">${w.total}<small>分</small></strong></div>${(w.dimensions || []).map(d => `<div class="dimension"><span>${d.label}</span><div><i style="width:${d.value}%"></i></div><b>${d.value}</b></div>`).join('')}` : '<p class="muted">专家独立评分，提交前无法查看其他人的评分。完成评审后显示结论。</p>'}${w.status === 'needs_third' ? '<div class="notice spaced">两位专家评分差异较大，需安排第三位复核。</div>' : ''}${w.reviews.map(r => `<div class="review"><strong>${esc(r.name)} <span>${r.total}分</span></strong><p class="pre">${esc(r.comment)}</p></div>`).join('')}</div>
+    ${(w.benefits || []).length ? '<div class="section-heading"><h2>成长权益</h2><span>由运营安排兑现</span></div>' + w.benefits.map(b => `<div class="benefit"><span class="benefit-icon">✓</span><div><strong>${esc(b.name)}</strong><p>${esc(b.status)}</p></div></div>`).join('') : ''}
+    ${admin && ['submitted', 'needs_third'].includes(w.status) ? `<div class="paper spaced"><h3>分配独立专家</h3><p class="muted">初评2位，分差复核需保留原2位并增加第3位。</p><form id="assign-form">${state.session.experts.filter(e => e.id !== w.authorId).map(e => check('expertIds', `${esc(e.nickname)} · ${esc(e.genre)}`, w.expertIds.includes(e.id)).replace('name="expertIds"', `name="expertIds" value="${esc(e.id)}"`)).join('')}<button class="primary full">确认分配</button></form></div>` : ''}
+    ${canReview ? `<div class="paper spaced"><h3>独立评审意见</h3><form id="review-form">${M.DIMENSIONS.map(d => `<div class="score-input"><label for="score-${d.key}">${d.label}<small>权重${d.weight * 100}%</small></label><input id="score-${d.key}" name="${d.key}" type="number" min="0" max="100" step="1" value="80" required></div>`).join('')}${field('修改建议', '<textarea name="comment" minlength="20" maxlength="2400" required placeholder="至少20字，给出具体可执行的修改建议。"></textarea>')}${check('noConflict', '我已独立审阅，确认不存在利益冲突。')}<button class="primary full">提交并冻结本次评审</button></form></div>` : ''}
+    ${admin && w.status === 'approved' && w.incubationCandidate ? `<div class="paper spaced"><h3>确认入选孵化</h3><form id="incubate-form">${field('免费培训安排', '<input name="schedule" minlength="5" maxlength="300" required placeholder="填写培训时间、联系方式与具体安排">')}<button class="primary full">确认安排并发放奖励</button></form></div>` : ''}
+    ${admin && w.status === 'submitted' ? `<form id="reject-form" class="paper spaced">${field('未受理原因（如需退回）', '<input name="reason" minlength="5" maxlength="500" required placeholder="例如：请补充原作改编授权">')}<button class="secondary full">退回补充</button></form>` : ''}
+    ${admin && ['approved', 'incubating'].includes(w.status) && w.allowDisplay ? button(w.published ? '下架公开正文' : '审核通过，公开作品正文', 'publish-work', '', 'secondary full spaced') : ''}
+    ${mine && w.allowDisplay ? button('撤回公开展示授权', 'revoke-display', '', 'text-button full spaced') : ''}${w.published ? button('举报这份公开内容', 'report', `data-id="${esc(w.id)}"`, 'text-button full spaced') : ''}`;
+}
+function creation() {
+  const s = state.session;
+  return `${heading('CREATIVE STUDIO', '先有一段，新声。', '把脑海里的画面，写成第一份创作草稿。')}<div class="points-strip"><span>可用创作积分</span><strong>${s.user.points}<small>积分</small></strong></div><div class="notice">本地模式使用离线模板样稿，非真实大模型生成。首版曲谱为C调4/4拍旋律练习，需专业复核。</div>
+    <form id="generate-form" class="spaced">${field('想创作什么？', select('workType', M.TYPES.map(t => ({ ...t, label: `${t.label} · ${t.cost}积分` })), 'lyrics'))}${field('剧种参考', select('genre', M.GENRES, '豫剧'))}${field('创作主题', '<input name="title" minlength="2" maxlength="60" required placeholder="例如：远行的人，在春天归来">')}${field('人物、场景与情绪', '<textarea name="scene" minlength="5" maxlength="600" required placeholder="谁在什么地方，想对谁说什么？"></textarea>')}${check('aiConsent', '我了解输出为AI辅助创作草稿，定谱及演出前须由专业老师复核。')}<button class="primary full">生成我的第一稿 →</button><p class="form-note">生成失败自动退回积分。超过5分钟可检查超时退回。当前不提供现金支付。</p></form>
+    ${state.job ? jobResult(state.job) : ''}<div class="section-heading"><h2>创作记录</h2><span>每一份灵感都有来处</span></div>${state.dashboard.jobs.length ? state.dashboard.jobs.map(j => `<button class="record-row" data-action="job" data-id="${esc(j.id)}"><div><strong>${esc(j.input.title)}</strong><small>${esc(j.provider)}</small></div><span class="tag">${j.status === 'completed' ? '已完成' : j.status === 'failed' ? '积分已退回' : '生成中'}</span></button>`).join('') : '<div class="empty">每一份草稿都会保存在这里。</div>'}`;
+}
+function jobResult(j) {
+  if (j.status !== 'completed') return `<div class="paper spaced"><h3>${esc(j.input.title)}</h3><div class="notice">${j.status === 'failed' ? esc(j.error) : '正在生成，请稍后刷新。'}</div>${j.status === 'pending' ? button('检查超时并退回积分', 'recover-job', '', 'secondary full spaced') : ''}</div>`;
+  return `<div class="paper result spaced" id="generated-result"><span class="tag red">AI辅助创作草稿</span><h2>${esc(j.input.title)}</h2><div class="pre excerpt">${esc(j.result.lyrics)}</div>${j.result.score ? `<div class="notation"><div>1=C　4/4　♩=${j.result.score.tempo}</div><p>${j.result.score.bars.map(b => b.join(' ')).join(' | ')}</p></div>` : ''}<p class="form-note">${esc(j.result.notes)}</p><div class="actions">${button('导出TXT', 'export-text', '', 'secondary')}${j.result.score ? button('导出MusicXML', 'export-score', '', 'secondary') : ''}</div>${button('带入投稿，继续打磨 →', 'submit-job', '', 'primary full spaced')}</div>`;
+}
+function profile() {
+  const u = state.session.user, dashboard = state.dashboard;
+  return `${heading('MY VOICE, MY STAGE', '每一步，都有回声。', `${esc(u.nickname)}，欢迎回来。`)}<div class="profile-stats"><div><strong>${u.points}</strong><small>可用积分</small></div><div><strong>${dashboard.works.length}</strong><small>我的投稿</small></div><div><strong>${dashboard.works.filter(w => ['approved', 'incubating'].includes(w.status)).length}</strong><small>通过评审</small></div></div>${u.role !== 'creator' ? button(u.role === 'admin' ? '进入运营工作台 →' : '进入专家评审席 →', 'desk', '', 'primary full') : ''}
+    <div class="section-heading"><h2>个人IP资料</h2><span>让作品背后的人被看见</span></div><form id="profile-form" class="paper">${field('昵称 / 创作署名', `<input name="nickname" value="${esc(u.nickname)}" minlength="2" maxlength="20" required>`)}${field('主要剧种', select('genre', M.GENRES, u.genre))}${field('我的创作介绍', `<textarea name="bio" maxlength="300">${esc(u.bio)}</textarea>`)}${check('profileConsent', '允许运营审核后展示我的个人主页。取消并保存将立即下架。', u.profileConsent)}<button class="secondary full">保存个人资料</button><p class="form-note">资料修改后，公开主页仍显示上一次审核的内容，直到运营重新审核。</p>${u.profilePublished ? button('查看我的公开主页 ↗', 'creator', `data-id="${esc(u.id)}"`, 'text-button full') : ''}</form>
+    <div class="section-heading"><h2>积分流水</h2><span>每一笔都可追溯</span></div><div class="paper">${dashboard.ledger.map(l => `<div class="ledger-row"><div><strong>${esc(l.reason)}</strong><small>${date(l.createdAt)} · 余额 ${l.balance}</small></div><b class="${l.delta < 0 ? 'negative' : ''}">${l.delta > 0 ? '+' : ''}${l.delta}</b></div>`).join('')}</div>${button('投稿规则与隐私说明', 'policy', '', 'text-button full spaced')}`;
+}
+function desk() {
+  const d = state.desk, admin = state.session.user.role === 'admin';
+  return `${heading(admin ? 'OPERATIONS DESK' : 'EXPERT REVIEW', admin ? '把下一步安排好。' : '让专业，给予方向。', admin ? '受理投稿、分配专家、管理展示与成长计划。' : '独立审阅每一份热爱，给出具体可行的建议。')}<div class="section-heading"><h2>${admin ? '投稿与评审管理' : '分配给我的作品'}</h2><span>${d.works.length}份作品</span></div>${d.works.length ? d.works.map(w => workCard(w, true)).join('') : '<div class="empty">暂时没有待处理作品。</div>'}
+    ${admin ? `<div class="section-heading"><h2>创作者与专家</h2><span>${d.users.length}个账号</span></div>${d.users.map(u => `<div class="paper user-card"><div class="flex between"><strong>${esc(u.nickname)}</strong><span class="tag">${u.role === 'admin' ? '运营' : u.role === 'expert' ? '专家' : '创作者'}</span></div><p>${esc(u.bio)}</p><p class="muted">${u.profileConsent ? '已授权个人主页展示' : '未授权公开个人主页'}</p><div class="actions">${u.role === 'creator' ? button('核验并开通专家', 'grant-expert', `data-id="${esc(u.id)}"`, 'secondary') : ''}${u.profileConsent ? button(u.profilePublished ? '下架主页' : '审核并展示主页', 'publish-profile', `data-id="${esc(u.id)}" data-value="${!u.profilePublished}"`, 'secondary') : ''}</div>${u.profilePublished ? button('按当前资料更新公开主页', 'publish-profile', `data-id="${esc(u.id)}" data-value="true"`, 'text-button full spaced') : ''}</div>`).join('')}
+    <div class="section-heading"><h2>评论待审</h2><span>${d.comments.length}条</span></div>${d.comments.length ? d.comments.map(c => `<div class="paper"><span class="muted">${esc(c.authorName)}</span><p class="pre">${esc(c.text)}</p><div class="actions">${button('通过并展示', 'moderate', `data-id="${esc(c.id)}" data-value="approved"`, 'secondary')}${button('不予展示', 'moderate', `data-id="${esc(c.id)}" data-value="rejected"`, 'secondary')}</div></div>`).join('') : '<div class="empty small">暂无待审评论</div>'}
+    <div class="section-heading"><h2>举报待处理</h2><span>${d.reports.length}条</span></div>${d.reports.length ? d.reports.map(r => `<div class="paper"><p>${esc(r.reason)}</p><small>${esc(r.targetId)}</small><div class="actions">${button('下架并结案', 'resolve-report', `data-id="${esc(r.id)}" data-value="remove"`, 'secondary')}${button('保留并结案', 'resolve-report', `data-id="${esc(r.id)}" data-value="dismiss"`, 'secondary')}</div></div>`).join('') : '<div class="empty small">暂无待处理举报</div>'}` : ''}`;
+}
+function creator() {
+  const c = state.creator;
+  return `<div class="creator-hero"><span class="eyebrow">CREATOR PORTRAIT</span><div class="flex"><span class="avatar large">${esc(c.nickname[0])}</span><h1>${esc(c.nickname)}</h1></div><span class="tag">${esc(c.genre)}</span><p class="pre">${esc(c.bio)}</p></div><div class="section-heading"><h2>代表作品</h2><span>认真创作，慢慢被看见</span></div>${c.works.length ? c.works.map(w => workCard(w)).join('') : '<div class="empty">作品正在打磨，期待第一声。</div>'}<div class="section-heading"><h2>听见彼此</h2><span>友善，具体，真诚</span></div>${c.comments.map(v => `<div class="paper"><div class="flex between"><strong>${esc(v.authorName)}</strong><span class="muted">${date(v.createdAt)}</span></div><p class="pre">${esc(v.text)}</p>${button('举报', 'report', `data-id="${esc(v.id)}"`, 'text-button')}</div>`).join('')}<form id="comment-form">${field('留下你的创作建议', '<textarea name="text" minlength="2" maxlength="500" required placeholder="喜欢哪一句？希望听到什么？"></textarea>')}<button class="primary full">提交评论，审核后展示</button></form>${button('举报该主页', 'report', `data-id="${esc(c.id)}"`, 'text-button full spaced')}`;
+}
+function policy() { return `${heading('SERVICE & RIGHTS', '创作规则与隐私说明', '开发验收草案 · dev-2026-09-19')}<div class="notice">正式运营主体、客服、保存期限和活动安排仍需填写。</div>${policies.map(p => `<section class="policy"><h2>${p.title}</h2><p>${p.body}</p></section>`).join('')}`; }
+const pages = { home, submit: submission, works, work: detail, create: creation, profile, desk, creator, policy };
+function render() {
+  const main = $('#main');
+  main.innerHTML = (state.error ? `<div class="error" role="alert">${esc(state.error)}</div>` : '') + pages[state.page]();
+  $('#actor').value = actor;
+  $('#back').hidden = ['home', 'works', 'create', 'profile'].includes(state.page);
+  document.querySelectorAll('[data-nav]').forEach(b => { b.classList.toggle('active', b.dataset.nav === state.page); });
+  $('#identity').textContent = L.ACTORS.find(a => a.id === actor).label;
+}
+async function load(page, id) {
+  const next = { ...state, page: page || state.page, id: id || '', error: '' };
+  next.session = await calls('bootstrap');
+  next.dashboard = await calls('dashboard');
+  if (next.page === 'work') next.detail = await calls('getWork', { id: next.id });
+  if (next.page === 'creator') next.creator = await calls('creator', { id: next.id });
+  if (next.page === 'desk') next.desk = await calls('desk');
+  state = next; render();
+}
+async function guard(fn) {
+  if (busy) return;
+  busy = true; document.body.classList.add('is-busy'); $('#working').hidden = false;
+  try { await fn(); }
+  catch (err) {
+    state.error = err.message || '操作失败，请重试';
+    let box = $('#main .error'); if (!box) { box = document.createElement('div'); box.className = 'error'; box.setAttribute('role', 'alert'); $('#main').prepend(box); } box.textContent = state.error; box.scrollIntoView({ block: 'start', behavior: 'smooth' });
+  } finally { busy = false; document.body.classList.remove('is-busy'); $('#working').hidden = true; }
+}
+async function navigate(page, id) { await load(page, id); window.scrollTo({ top: 0, behavior: 'instant' }); }
+const getForm = form => { const data = Object.fromEntries(new FormData(form)); form.querySelectorAll('input[type=checkbox]').forEach(el => { if (el.name !== 'expertIds') data[el.name] = el.checked; }); return data; };
+function saveDraft() {
+  const form = $('#submit-form'); if (!form) return;
+  localStorage.setItem(`youxi:draft:${actor}`, JSON.stringify({ ...getForm(form), files: draftFiles, requestId: draftId }));
+}
+function download(name, content, type) { const url = URL.createObjectURL(new Blob([content], { type: type || 'text/plain;charset=utf-8' })); const a = document.createElement('a'); a.href = url; a.download = name.replace(/[\\/:*?"<>|]/g, '_'); a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); }
+async function fileDB() { return new Promise((resolve, reject) => { const req = indexedDB.open('youxi-xinsheng-files', 1); req.onupgradeneeded = () => req.result.createObjectStore('files'); req.onsuccess = () => resolve(req.result); req.onerror = () => reject(new Error('浏览器未允许本地附件存储，请使用Chrome打开')); }); }
+async function storeFile(id, file) { const db = await fileDB(); return new Promise((resolve, reject) => { const tx = db.transaction('files', 'readwrite'); tx.objectStore('files').put(file, id); tx.oncomplete = () => { db.close(); resolve(); }; tx.onerror = () => { db.close(); reject(new Error('本地附件保存失败，请检查磁盘空间')); }; }); }
+async function readFile(id) { const db = await fileDB(); return new Promise((resolve, reject) => { const tx = db.transaction('files', 'readonly'); const req = tx.objectStore('files').get(id); req.onsuccess = () => resolve(req.result); req.onerror = () => reject(new Error('附件读取失败')); tx.oncomplete = () => db.close(); }); }
+document.addEventListener('input', e => { if (e.target.closest('#submit-form')) saveDraft(); if (e.target.closest('#generate-form')) jobRequestId = ''; if (e.target.closest('#comment-form')) commentId = ''; });
+document.addEventListener('change', e => {
+  if (e.target.id === 'actor') guard(async () => { actor = e.target.value; localStorage.setItem(L.KEY + ':actor', actor); state.job = null; draftFiles = []; draftId = rid(); jobRequestId = ''; await navigate('profile'); });
+  if (e.target.id === 'files') guard(async () => {
+    const files = Array.from(e.target.files);
+    if (files.length + draftFiles.length > 3) throw new Error('最多上传3份附件');
+    for (const f of files) {
+      if (!M.EXTENSIONS.includes(f.name.split('.').pop().toLowerCase())) throw new Error('暂不支持文件类型：' + f.name);
+      if (!f.size || f.size > 20 * 1024 * 1024) throw new Error('每份附件需小于20MB');
+      const id = 'local:' + actor + ':' + rid(); await storeFile(id, f); draftFiles.push({ fileId: id, name: f.name, size: f.size }); saveDraft();
+    }
+    $('#file-list').innerHTML = fileList(); e.target.value = '';
+  });
+});
+document.addEventListener('submit', e => {
+  e.preventDefault(); const form = e.target;
+  guard(async () => {
+    const data = getForm(form);
+    if (form.id === 'submit-form') { saveDraft(); const w = await calls('submit', { ...data, files: draftFiles, requestId: draftId, agreementVersion: M.AGREEMENT_VERSION }); localStorage.removeItem(`youxi:draft:${actor}`); draftFiles = []; draftId = rid(); await navigate('work', w.id); toast('投稿成功，已进入私密评审流程'); }
+    if (form.id === 'profile-form') { await calls('saveProfile', data); await load('profile'); toast('资料已保存'); }
+    if (form.id === 'assign-form') { await calls('assign', { id: state.id, expertIds: new FormData(form).getAll('expertIds') }); await load('work', state.id); toast('专家已分配'); }
+    if (form.id === 'review-form') { if (!confirm('提交后评分与意见会冻结，确认提交本次独立评审？')) return; const scores = {}; M.DIMENSIONS.forEach(d => { scores[d.key] = Number(data[d.key]); }); await calls('review', { id: state.id, scores, comment: data.comment, noConflict: data.noConflict }); await load('work', state.id); toast('独立评审已提交'); }
+    if (form.id === 'incubate-form') { await calls('incubate', { id: state.id, schedule: data.schedule }); await load('work', state.id); toast('孵化安排及积分奖励已记录'); }
+    if (form.id === 'reject-form') { await calls('rejectWork', { id: state.id, reason: data.reason }); await load('work', state.id); }
+    if (form.id === 'generate-form') { if (!jobRequestId) jobRequestId = rid(); const j = await calls('generate', { ...data, requestId: jobRequestId }); state.job = j; if (j.status !== 'pending') jobRequestId = ''; await load('create'); $('#generated-result')?.scrollIntoView({ behavior: 'smooth' }); }
+    if (form.id === 'comment-form') { if (!commentId) commentId = rid(); await calls('comment', { targetId: state.id, text: data.text, requestId: commentId }); commentId = ''; form.reset(); toast('评论已提交，审核后展示'); }
+  });
+});
+document.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.nav) return guard(() => navigate(b.dataset.nav));
+  const a = b.dataset.action, id = b.dataset.id;
+  if (!a) return;
+  guard(async () => {
+    if (a === 'back') return navigate('home');
+    if (a === 'submit-page') return navigate('submit');
+    if (a === 'create-page') return navigate('create');
+    if (['work', 'creator', 'desk', 'policy'].includes(a)) return navigate(a, id);
+    if (a === 'remove-file') { draftFiles.splice(Number(b.dataset.index), 1); saveDraft(); $('#file-list').innerHTML = fileList(); }
+    if (a === 'open-file') { const files = await calls('fileLinks', { id: state.id }); const f = files[Number(b.dataset.index)], blob = await readFile(f.fileId); if (!blob) throw new Error('本地附件已不存在，请从原投稿设备打开'); download(f.name, blob, blob.type); }
+    if (a === 'publish-work') { await calls('publishWork', { id: state.id, published: !state.detail.published }); await load('work', state.id); toast('展示状态已更新'); }
+    if (a === 'revoke-display') { await calls('revokeDisplay', { id: state.id }); await load('work', state.id); toast('已撤回作品展示授权'); }
+    if (a === 'grant-expert') { if (!confirm('确认已核验该用户的真实专业身份、合作授权及评审规则？')) return; await calls('grantExpert', { userId: id, verified: true }); await load('desk'); }
+    if (a === 'publish-profile') { await calls('publishProfile', { userId: id, published: b.dataset.value === 'true' }); await load('desk'); toast('主页展示已更新'); }
+    if (a === 'moderate') { await calls('moderateComment', { id, status: b.dataset.value }); await load('desk'); toast('评论已审核'); }
+    if (a === 'report') { const reason = prompt('请填写举报原因（至少5字）'); if (reason !== null) { await calls('report', { targetId: id, reason, requestId: rid() }); toast('举报已提交运营处理'); } }
+    if (a === 'resolve-report') { await calls('resolveReport', { id, resolution: b.dataset.value }); await load('desk'); toast('举报已处理'); }
+    if (a === 'job') { state.job = state.dashboard.jobs.find(j => j.id === id); render(); $('#generated-result')?.scrollIntoView({ behavior: 'smooth' }); }
+    if (a === 'recover-job') { state.job = await calls('recoverGeneration', { id: state.job.id }); await load('create'); }
+    if (a === 'export-text') download(state.job.input.title + '.txt', M.generationText(state.job));
+    if (a === 'export-score') download(state.job.input.title + '.musicxml', M.musicXML(state.job), 'application/vnd.recordare.musicxml+xml');
+    if (a === 'submit-job') { const j = state.job; draftId = rid(); localStorage.setItem(`youxi:draft:${actor}`, JSON.stringify({ title: j.input.title, text: M.generationText(j), genre: j.input.genre, workType: j.input.workType, aiUse: 'generated', requestId: draftId, files: [] })); await navigate('submit'); }
+  });
+});
+async function start() {
+  repo = L.createMemoryRepository(JSON.parse(localStorage.getItem(L.KEY) || '{}'), data => localStorage.setItem(L.KEY, JSON.stringify(data)));
+  service = L.makeDemoService(repo);
+  await L.seedDemo(repo, service);
+  $('#actor').innerHTML = L.ACTORS.map(a => `<option value="${a.id}">${a.label}</option>`).join('');
+  await load('home');
+}
+guard(start);
+
+}};const cache={};function load(id){if(cache[id])return cache[id].exports;if(!modules[id])throw new Error('Missing module '+id);const module={exports:{}};cache[id]=module;modules[id](module,module.exports,function(ref){const parts=id.split('/');parts.pop();for(const p of ref.split('/')){if(p==='..')parts.pop();else if(p!=='.')parts.push(p);}let resolved=parts.join('/');if(!resolved.endsWith('.js'))resolved+='.js';return load(resolved);});return module.exports;}load('preview/app.js');})();</script></body></html>

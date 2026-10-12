@@ -1,0 +1,1 @@
+{ "desc": "开发阶段关闭页面搜索收录", "rules": [{ "action": "disallow", "page": "*" }] }

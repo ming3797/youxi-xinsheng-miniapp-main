@@ -1,0 +1,8 @@
+{
+  "pages": ["pages/home/index", "pages/works/index", "pages/create/index", "pages/profile/index", "pages/submit/index", "pages/work/index", "pages/desk/index", "pages/creator/index", "pages/policy/index"],
+  "window": { "navigationBarTitleText": "有戏新声", "navigationBarBackgroundColor": "#f7f3eb", "navigationBarTextStyle": "black", "backgroundColor": "#f7f3eb", "backgroundTextStyle": "dark" },
+  "tabBar": { "color": "#85776c", "selectedColor": "#a72d33", "backgroundColor": "#fffdf9", "borderStyle": "white", "list": [{ "pagePath": "pages/home/index", "text": "新声" }, { "pagePath": "pages/works/index", "text": "作品" }, { "pagePath": "pages/create/index", "text": "创作" }, { "pagePath": "pages/profile/index", "text": "我的" }] },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

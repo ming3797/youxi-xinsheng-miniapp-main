@@ -1,0 +1,13 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const root = path.resolve(__dirname, '..');
+const read = file => fs.readFileSync(path.join(root, file), 'utf8');
+fs.mkdirSync(path.join(root, 'cloudfunctions/studio/lib'), { recursive: true });
+for (const file of ['core.js', 'model.js']) fs.copyFileSync(path.join(root, 'miniprogram/lib', file), path.join(root, 'cloudfunctions/studio/lib', file));
+const files = ['miniprogram/lib/model.js', 'miniprogram/lib/core.js', 'miniprogram/lib/local.js', 'miniprogram/lib/agreements.js', 'preview/app.js'];
+const modules = files.map(file => `${JSON.stringify(file)}:function(module,exports,require){\n${read(file)}\n}`).join(',\n');
+const bundle = `(function(){'use strict';const modules={${modules}};const cache={};function load(id){if(cache[id])return cache[id].exports;if(!modules[id])throw new Error('Missing module '+id);const module={exports:{}};cache[id]=module;modules[id](module,module.exports,function(ref){const parts=id.split('/');parts.pop();for(const p of ref.split('/')){if(p==='..')parts.pop();else if(p!=='.')parts.push(p);}let resolved=parts.join('/');if(!resolved.endsWith('.js'))resolved+='.js';return load(resolved);});return module.exports;}load('preview/app.js');})();`;
+const html = read('preview/shell.html').replace('/* STYLES */', read('preview/styles.css')).replace('/* BUNDLE */', bundle.replace(/<\/script/gi, '<\\/script'));
+fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
+fs.writeFileSync(path.join(root, 'dist/有戏新声_开发体验版.html'), html);
+console.log('已同步云函数共享逻辑，并生成独立离线体验文件。');

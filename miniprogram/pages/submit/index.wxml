@@ -1,0 +1,15 @@
+<view class="page">
+  <view class="eyebrow">CREATE YOUR FIRST VOICE</view><view class="title">让作品，先被听见。</view><view class="muted spaced">投稿默认私密，仅本人、指定专家与运营可查看。草稿自动保存在本机。</view>
+  <view wx:if="error" class="error spaced">{{error}}</view>
+  <view class="field spaced"><text class="label">作品标题</text><input value="{{form.title}}" maxlength="40" data-key="title" bindinput="field" placeholder="例如：归燕 · 春信"/></view>
+  <view class="row"><view class="field grow"><text class="label">剧种</text><picker range="{{genres}}" value="{{genreIndex}}" bindchange="genre"><view class="select">{{form.genre}} ⌄</view></picker></view><view class="field grow"><text class="label">投稿类型</text><picker range="{{types}}" range-key="label" value="{{typeIndex}}" bindchange="type"><view class="select">{{types[typeIndex].label}} ⌄</view></picker></view></view>
+  <view class="field"><text class="label">作品正文 / 创作说明</text><textarea value="{{form.text}}" maxlength="12000" data-key="text" bindinput="field" placeholder="写下唱词，或说明作品中的人物、场景与创作想法。"/><view class="form-note">至少20字，或上传作品文件。提交后的评审版本会被冻结。</view></view>
+  <view class="field"><text class="label">附件（可选）</text><button class="secondary" bindtap="chooseFile" disabled="{{busy}}">从微信会话选择词、谱、音视频文件</button><view class="form-note">最多3份，每份20MB内。支持PDF、图片、音视频、TXT、MusicXML及MIDI。</view><view wx:for="{{form.files}}" wx:key="fileId" class="row between link-row"><text class="grow">{{item.name}}</text><button class="ghost" data-index="{{index}}" bindtap="removeFile">移除</button></view></view>
+  <view class="field"><text class="label">AI参与程度</text><picker range="{{aiLabels}}" value="{{aiIndex}}" bindchange="ai"><view class="select">{{aiLabels[aiIndex]}} ⌄</view></picker></view>
+  <checkbox-group data-key="adult" bindchange="check"><label class="check"><checkbox value="yes" checked="{{form.adult}}" color="#a72d33"/><text>我已年满18周岁（开发首版仅面向成年人）。</text></label></checkbox-group>
+  <checkbox-group data-key="original" bindchange="check"><label class="check"><checkbox value="yes" checked="{{form.original}}" color="#a72d33"/><text>我确认拥有作品提交权，已说明引用、改编来源及AI参与情况。</text></label></checkbox-group>
+  <checkbox-group data-key="reviewConsent" bindchange="check"><label class="check"><checkbox value="yes" checked="{{form.reviewConsent}}" color="#a72d33"/><text>同意投稿规则及隐私说明，授权平台与指定专家为评审处理本次投稿。</text></label></checkbox-group>
+  <checkbox-group data-key="allowDisplay" bindchange="check"><label class="check"><checkbox value="yes" checked="{{form.allowDisplay}}" color="#a72d33"/><text>自愿允许评审通过后，经运营审核公开展示正文与署名（不包含附件的公开播放）。</text></label></checkbox-group>
+  <button class="ghost" bindtap="policy">阅读投稿规则与隐私说明</button>
+  <button class="primary spaced" loading="{{busy}}" disabled="{{busy}}" bindtap="submit">确认并提交评审</button>
+</view>

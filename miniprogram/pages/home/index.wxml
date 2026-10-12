@@ -1,0 +1,20 @@
+<view class="page">
+  <view wx:if="isDemo" class="demo">本地开发体验 · 数据保存在本机 · 我的页面可切换角色</view>
+  <view wx:if="error" class="error" bindtap="load">{{error}} · 点击重试</view>
+  <view class="row between" style="margin-bottom:30rpx"><view><view class="eyebrow">YOUXI XINSHENG</view><view class="section-title" style="margin:0">有戏新声</view></view><view class="tag">把热爱唱成作品</view></view>
+  <view class="hero">
+    <view class="row between"><view class="eyebrow">青年戏曲共创计划</view><view class="seal">新声</view></view>
+    <view class="title"><view>你的故事，</view><view>值得一座戏台。</view></view>
+    <view class="hero-line"></view>
+    <view class="muted"><view>从一段戏词、一支旋律开始。</view><view>让专业老师听见，让下一步创作发生。</view></view>
+    <button class="light-button" bindtap="submit">提交我的作品 →</button>
+  </view>
+  <view class="stat-grid"><view class="stat"><view class="stat-value">01</view><view class="small">原创投稿</view></view><view class="stat"><view class="stat-value">02</view><view class="small">专业评审</view></view><view class="stat"><view class="stat-value">03</view><view class="small">成长孵化</view></view></view>
+  <view class="card row between" bindtap="create"><view class="grow"><view style="font-size:32rpx;font-weight:600">戏词与旋律，先有第一稿</view><view class="muted">创作工坊 · 灵感成词 · 简谱导出</view></view><view style="font-size:40rpx;color:#a72d33">↗</view></view>
+  <view class="row between"><view class="section-title">本期新声</view><view class="muted">经授权与审核后展出</view></view>
+  <view wx:for="{{showcase}}" wx:key="id" class="card" data-id="{{item.id}}" bindtap="openWork"><view class="row between"><view><text class="tag">{{item.genre}}</text><text class="tag tag-green">{{item.statusText}}</text></view><text class="score">{{item.total}}</text></view><view class="work-title">{{item.title}}</view><view class="excerpt">{{item.text}}</view><view class="divider"></view><view class="muted">{{item.authorName}} · {{item.typeText}} →</view></view>
+  <view wx:if="!showcase.length" class="empty"><view>下一份新声，可能就是你。</view><view>完成评审并授权后，作品将由运营审核展示。</view></view>
+  <view class="section-title">创作者的另一面</view>
+  <view wx:for="{{creators}}" wx:key="id" class="card row" data-id="{{item.id}}" bindtap="openCreator"><view class="avatar">{{item.initial}}</view><view class="grow"><view style="font-size:30rpx;font-weight:600">{{item.nickname}}</view><view class="muted">{{item.bio}}</view></view><text>→</text></view>
+  <button wx:if="session.user.role === 'admin' || session.user.role === 'expert'" class="secondary spaced" bindtap="desk">进入评审与运营工作台</button>
+</view>

@@ -1,0 +1,1 @@
+<view class="page"><view class="eyebrow">SERVICE &amp; RIGHTS</view><view class="title">创作规则与隐私说明</view><view class="notice spaced"><view>开发验收草案 · dev-2026-09-19</view><view>运营主体：{{operator}}</view><view>客服：{{contact}}</view></view><view wx:for="{{sections}}" wx:key="title"><view class="section-title">{{item.title}}</view><view class="pre muted">{{item.body}}</view></view></view>
